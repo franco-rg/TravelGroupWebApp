@@ -25,7 +25,7 @@ const Header = ({
         );
     }
     return (
-        <div className="px-6 bg-white h-14 py-9 relative shadow-beautiful">
+        <div className="mx-3 mt-4 sm:mx-8 lg:mx-10 px-6 bg-white h-14 py-9 relative shadow-beautiful rounded-lg">
             {/* className= " bg-menu" */}
             <div className="h-full px-2 m-auto md:px-8 lg:px-5">
                 <div className="flex flex-col-reverse items-center justify-center h-full gap-2 sm:flex-row sm:gap-0 sm:justify-between">
@@ -37,8 +37,8 @@ const Header = ({
                     </div>
                 </div>
             </div>
-            <div className='absolute w-1.5 h-full top-0 left-0 py-3'>
-                <div className='bg-menu w-full h-full rounded-r-md'></div>
+            <div className='absolute w-1.5 h-full top-0 left-0 py-4'>
+                <div className='w-full h-full rounded-r-md' style={{background: '#BAD1CD'}}></div>
             </div>
         </div>
     );

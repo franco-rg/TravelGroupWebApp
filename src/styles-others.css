@@ -5,6 +5,26 @@ body {
   background-color: #F8F8F8 !important;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 /* General */
 .poppins {
   font-family: "Poppins", sans-serif;
@@ -46,9 +66,8 @@ body {
 /* Others */
 .slider {
   width: 280px;
-  left: -280px;
-  background: #1C1F2A;
-  height: 100vh;
+  left: -300px;
+  height: 96vh;
 }
 
 .slider ul li button {
@@ -102,8 +121,8 @@ body {
 }
 
 .slider.active~.content-page {
-  width: calc(100% - 280px);
-  left: 280px;
+  width: calc(100% - 290px);
+  left: 290px;
 }
 
 .slider.active>.nav_list {

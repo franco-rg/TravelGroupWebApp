@@ -1,10 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useEffect, useState } from "react";
-import Dropdown from "./DropdownUser";
+import React, { useState } from "react";
+import logo from "../../assets/img/logoynombre.svg";
 
 const NavMenu = () => {
   const [toggle, setToggle] = useState(true);
-  const [menuLateral, setMenuLateral] = useState([]);
 
   const toggleNavBar = () => {
     setToggle(!toggle);
@@ -17,32 +16,22 @@ const NavMenu = () => {
 
   return (
     <>
-      <div className="relative px-2 bg-menu" style={{ height: "4.2rem" }}>
-        <div className="h-full px-2 m-auto md:px-8 lg:px-10">
-          <div className="flex items-center justify-end h-full">
-            <Dropdown />
-          </div>
-        </div>
-      </div>
-
       <nav
-        className={"slider z-50 top-0 left-0 text-white fixed shadow-xl transition-all duration-300 ease-in-out active".concat(
+        className={"slider bg-white m-4 z-50 rounded-xl top-0 left-0 text-white fixed shadow-beautiful transition-all duration-300 ease-in-out active".concat(
           toggle ? "" : "active"
         )}
       >
-        <div
-          className="relative flex justify-center py-1 logo bg-menu"
-          style={{ height: "4.2rem" }}
-        >
+        {/* <div className="flex justify-center flex justify-center bg-gray-100 mt-20" style={{ height: "4rem" }}>
           <a href="/">
             <img
-              className="min-w-full py-1"
+              className="min-w-full my-3"
               alt="logo_img"
+              src={logo}
               style={{ maxWidth: "140px" }}
             />
           </a>
-        </div>
-        <div className="absolute w-8 top-4 -right-12">
+        </div> */}
+        <div className="absolute w-8 top-4 left-4">
           <button
             id="btnOpen"
             onClick={() => {
@@ -52,29 +41,28 @@ const NavMenu = () => {
           >
             <FontAwesomeIcon
               icon="fa-solid fa-bars"
-              id="btnClose"
-              className="text-gray-100 transition-all duration-300"
+              className="text-gray-600 transition-all duration-300"
             />
-            <FontAwesomeIcon
+            {/* <FontAwesomeIcon
               icon="fa-solid fa-xmark"
               id="btnOpen"
-              className="absolute flex text-gray-100 transition-all duration-300 top-2"
-            />
+              className="absolute flex text-gray-600 mx-1 transition-all duration-300 top-2"
+            /> */}
           </button>
         </div>
-        <ul className="overflow-hidden nav_list h-3/4">
+        <ul className="overflow-hidden nav_list h-3/4 mt-20">
           <li
             key="_1"
-            className="py-5 pl-5 cursor-pointer hover:bg-gray-700 opacity-90"
-            // onClick={() => {
-            //   handleClick("/");
-            // }}
+            className="py-5 cursor-pointer opacity-90 m-4"
+          // onClick={() => {
+          //   handleClick("/");
+          // }}
           >
-            <button>
+            <button className="bg-gray-100 w-full py-4 rounded-lg">
               <div className="ml-2 overflow-hidden w-7">
-                <FontAwesomeIcon icon="fa-solid fa-house" />
+                <FontAwesomeIcon icon="fa-solid fa-house" className="text-gray-700" />
               </div>
-              <span className="uppercase links_name poppins">Inicio</span>
+              <span className="uppercase links_name poppins text-gray-700">Inicio</span>
             </button>
           </li>
         </ul>

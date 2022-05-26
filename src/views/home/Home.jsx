@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../../components/shared/Header";
 import DateTime from "./DateTime";
 import ContainerViews from "../../components/shared/ContainerViews";
+import logo from "../../assets/img/nombre.svg";
 
 const Home = () => {
   return (
@@ -24,33 +25,44 @@ const Home = () => {
               </div>
               <div
                 className="h-48 flex justify-center items-center"
-                style={{ background: "#D0023C" }}
+                style={{ background: "#BAD1CD" }}
               >
-                {/* <img
+                <img
                   className="min-w-full p-28"
                   src={logo}
                   alt="logo_img"
                   style={{ minWidth: "70px", minHeight: "20px" }}
-                /> */}
+                />
               </div>
             </div>
           </div>
-
-          <div className="col-span-2 bg-gray-100 border border-gray-200 rounded-lg h-28 flex flex-col justify-center items-center gap-3">
-            <FontAwesomeIcon
-              icon="fa-solid fa-calendar-days"
-              className="text-gray-800"
-              style={{ fontSize: "35px" }}
-            />
-            <DateTime fecha={true} color="#222" />
-          </div>
-          <div className="col-span-2 bg-gray-100 border border-gray-200 rounded-lg h-28 flex flex-col justify-center items-center gap-3">
-            <FontAwesomeIcon
-              icon="fa-solid fa-clock"
-              className="text-gray-800"
-              style={{ fontSize: "35px" }}
-            />
-            <DateTime hora={true} color="#222" />
+          <div className="flex-wrap gap-10">
+            <div className="relative w-80 mb-8 bg-gray-100 rounded-xl h-28 flex justify-center items-center gap-3">
+              <div className="left-8 absolute">
+                <DateTime hora={true} color="#222" />
+                <p className="text-gray-700">Hora Perú</p>
+              </div>
+              <div className="left-56 top-9 absolute">
+                <FontAwesomeIcon
+                  icon="fa-solid fa-clock"
+                  className="text-gray-800 absolute"
+                  style={{ fontSize: "40px" }}
+                />
+              </div>
+            </div>
+            <div className="relative w-80 bg-gray-100 rounded-xl h-28 flex justify-center items-center gap-3">
+              <div className="left-8 absolute">
+                <DateTime fecha={true} color="#222" />
+                <p className="text-gray-700">Fecha Local</p>
+              </div>
+              <div className="left-56 top-9 absolute">
+                <FontAwesomeIcon
+                  icon="fa-solid fa-calendar-days"
+                  className="text-gray-800"
+                  style={{ fontSize: "40px" }}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </ContainerViews>

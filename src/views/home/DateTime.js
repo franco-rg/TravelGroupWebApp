@@ -8,8 +8,8 @@ const datetime = ({ fecha, hora, color = '#FFFFFF' }) => {
     var displaytodaysdate = showdate.getDate() + '/' + (showdate.getMonth() + 1) + '/' + showdate.getFullYear();
     return (
         <div>
-            {fecha && <p className="poppins text-white text-base" style={{ color: color }}>{displaytodaysdate}</p>}
-            {hora && <p className="poppins text-white text-base" style={{ color: color }}>{time.toLocaleString('en-US', { hour: 'numeric', minute: "numeric", hour12: true })}</p>}
+            {fecha && <p className="poppins text-xl text-white text-base" style={{ color: color }}>{displaytodaysdate}</p>}
+            {hora && <p className="poppins text-xl text-white text-base" style={{ color: color }}>{time.toLocaleString('en-US', { hour: 'numeric', minute: "numeric", hour12: true })}</p>}
         </div>
     )
 }
