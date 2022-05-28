@@ -15,7 +15,7 @@ const NavMenu = () => {
 
   return (
     <>
-      <nav className={"slider bg-white m-4 z-50 rounded-xl top-0 left-0 text-white fixed shadow-beautiful transition-all duration-300 ease-in-out active".concat(toggle ? "" : "active")}>
+      <nav className={"slider bg-white m-4 z-50 rounded-xl top-0 left-0 text-white fixed shadow-beautiful transition-all duration-300 ease-in-out active ".concat(toggle ? "" : "active")}>
         <div className={toggle ? "absolute w-8 top-4 left-4" : "fixed left-2 top-8"}>
           <button
             id="btnOpen"
