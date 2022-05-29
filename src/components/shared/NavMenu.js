@@ -21,17 +21,7 @@ const NavMenu = () => {
                     toggle ? "" : "active"
                 )}
             >
-                {/* <div className="flex justify-center flex justify-center bg-gray-100 mt-20" style={{ height: "4rem" }}>
-          <a href="/">
-            <img
-              className="min-w-full my-3"
-              alt="logo_img"
-              src={logo}
-              style={{ maxWidth: "140px" }}
-            />
-          </a>
-        </div> */}
-                <div className="absolute w-8 top-4 left-4">
+                <div className={toggle ? "absolute w-8 top-4 left-4" : "fixed left-2 top-8"}>
                     <button
                         id="btnOpen"
                         onClick={() => {
