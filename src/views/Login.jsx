@@ -6,12 +6,12 @@ const Login = () => {
     <div className="bg-no-repeat bg-fixed bg-cover h-screen w-full relative bg-gray-50">
       <div className="mx-2 sm:h-screen relative">
         <div className="flex flex-col h-full px-0 sm:px-2 lg:px-0 gap-3">
-          <div className="sm:max-w-3xl mt-3 md:mt-auto w-full flex flex-col sm:flex-row m-auto bg-white rounded-lg overflow-hidden shadow-beautiful">
-            <div className="w-80 p-10 flex " style={{ background: "#BAD1CD" }}>
+          <div className="sm:max-w-4xl mt-3 md:mt-auto w-full flex flex-col sm:flex-row m-auto bg-white rounded-lg overflow-hidden shadow-beautiful" style={{height: '33rem'}}>
+            <div className="w-96 p-10 flex " style={{ background: "#BAD1CD" }}>
                 <img src={logo} />
             </div>
             <div className="sm:w-72 mt-4 sm:mt-auto">
-              <h5 className="text-left font-semibold text-xl text-gray-800 poppins">
+              <h5 className="text-center font-semibold text-xl text-gray-800 poppins">
                 Inicia Sesión
               </h5>
               <form>
