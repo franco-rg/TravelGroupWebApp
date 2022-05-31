@@ -18,7 +18,7 @@ const BreadcrumbsNavBar = [
     {
         id: "5",
         name: "Ventas"
-    },
+    }
 ]
 
 export { BreadcrumbsNavBar }

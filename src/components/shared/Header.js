@@ -6,7 +6,7 @@ const Header = ({
     title
 }) => {
     return (
-        <div className="mx-3 mt-4 sm:mx-8 lg:mx-10 px-6 bg-white h-14 py-9 relative shadow-beautiful rounded-lg">
+        <div className="mx-3 mt-4 sm:mx-8 lg:mx-10 px-6 bg-white h-14 py-9 relative shadow-beautiful rounded-xl">
             {/* className= " bg-menu" */}
             <div className="h-full px-2 m-auto md:px-8 lg:px-5">
                 <div className="flex flex-col-reverse items-center justify-center h-full gap-2 sm:flex-row sm:gap-0 sm:justify-between">
