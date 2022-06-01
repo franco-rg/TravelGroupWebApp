@@ -14,10 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/inicio" element={
-          <Layout>
-            <Home />
-          </Layout>} />
+        <Route path="/inicio" element={<Layout><Home /></Layout>} />
           <Route path='/' element={<Login />} />
       </Routes>
       {/* <BrowserRouter>
