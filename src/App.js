@@ -2,6 +2,7 @@ import './tailwind.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from '../src/views/home/Home'
 import Login from './views/Login';
+import Register from './views/Register';
 import Layout from '../src/components/shared/Layout'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/inicio" element={<Layout><Home /></Layout>} />
           <Route path='/' element={<Login />} />
+          <Route path='/register' element={<Register />} />
       </Routes>
       {/* <BrowserRouter>
       <Routes>
