@@ -1,8 +1,13 @@
 import React from "react";
 import viaje from "../../src/assets/img/register-img.svg";
 import logo from "../../src/assets/img/nombre.svg";
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div
       className="bg-no-repeat bg-fixed bg-cover h-screen w-full relative bg-gray-50"
@@ -12,7 +17,7 @@ const Login = () => {
           <div className="sm:max-w-4xl mt-3 w-full m-auto">
             <div className="flex justify-between items-center">
               <img src={logo} className="w-24 h-20" />
-              <button className="poppins bg-gray-100 text-sm text-white px-8 py-2 rounded-md border" style={{background: '#596966'}}>Inicia Sesión</button>
+              <button onClick={() => navigate(`/`)} className="poppins bg-gray-100 text-sm text-white px-8 py-2 rounded-md border" style={{background: '#596966'}}>Inicia Sesión</button>
             </div>
             <div
               className="grid grid-cols-2 rounded-lg overflow-hidden shadow-beautiful bg-white"

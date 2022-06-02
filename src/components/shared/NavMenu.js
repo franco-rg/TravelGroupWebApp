@@ -1,9 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { BreadcrumbsNavBar } from '../../router/routesNavBar';
+import { useNavigate } from "react-router-dom";
 
 const NavMenu = () => {
     const [toggle, setToggle] = useState(true);
+
+    const navigate = useNavigate();
 
     const toggleNavBar = () => {
         setToggle(!toggle);
@@ -16,7 +19,7 @@ const NavMenu = () => {
 
     const pageItems = () => {
         return BreadcrumbsNavBar.map((item) =>
-            <button key={item.id} className="duration-300 transition-all w-full py-4 rounded-lg my-4">
+            <button key={item.id} onClick={() => navigate(`${item.path}`)} className="duration-300 transition-all w-full py-4 rounded-lg my-4">
                 <div className="ml-2 overflow-hidden w-7"></div>
                 <span className="uppercase links_name poppins text-gray-700 font-medium">{item.name}</span>
             </button>
@@ -42,7 +45,7 @@ const NavMenu = () => {
                 </div>
                 <ul className="overflow-hidden nav_list h-3/4 mt-20">
                     <li key="_1" className="py-5 opacity-90 m-4">
-                        <button className="w-full py-4 rounded-lg" style={{background: '#a9b8b4'}}>
+                        <button className="w-full py-4 rounded-lg" onClick={() => navigate(`/inicio`)} style={{background: '#a9b8b4'}}>
                             <div className="ml-2 overflow-hidden w-7">
                                 <FontAwesomeIcon icon="fa-solid fa-house" className="text-gray-600" />
                             </div>
