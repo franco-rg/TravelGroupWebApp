@@ -7,6 +7,7 @@ const NavMenu = () => {
     const [toggle, setToggle] = useState(true);
 
     const navigate = useNavigate();
+    const [color, setColor] = useState("duration-300 transition-all w-full py-4 rounded-lg my-4")
 
     const toggleNavBar = () => {
         setToggle(!toggle);
@@ -17,9 +18,15 @@ const NavMenu = () => {
         setUbicacionActual(window.pageYOffset);
     });
 
+    const handleClick = (path) => {
+        navigate(path);
+        setColor("duration-300 transition-all w-full py-4 rounded-lg my-4 bg-red-500")
+    }
+
     const pageItems = () => {
         return BreadcrumbsNavBar.map((item) =>
-            <button key={item.id} onClick={() => navigate(`${item.path}`)} className="duration-300 transition-all w-full py-4 rounded-lg my-4">
+            <button key={item.id} onClick={() => handleClick(item.path)}
+                className={color}>
                 <div className="ml-2 overflow-hidden w-7"></div>
                 <span className="uppercase links_name poppins text-gray-700 font-medium">{item.name}</span>
             </button>

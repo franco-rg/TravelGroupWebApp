@@ -513,7 +513,7 @@ select {
 
 /* Personalized DataTable */
 .rdt_TableHeadRow {
-  background-color: #d0023c !important;
+  background-color: #1a546e !important;
   color: #FFF;
   font-weight: 500;
   font-size: 13px;
@@ -529,7 +529,7 @@ select {
 }
 
 .rdt_TableCol {
-  border: 1px solid #C51346;
+  border: 1px solid #1c546e;
   justify-content: center;
 }
 
@@ -658,7 +658,7 @@ select {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: #d0023c;
+  background-color: #273b55;
 }
 
 @keyframes pulse {

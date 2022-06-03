@@ -8,19 +8,17 @@ import ModalAgregarEmpresa from "./Modales/ModalAgregarEmpresa";
 import useModal from "../../hooks/useModal";
 import axios from "axios";
 import CustomTable from "../../components/shared/customs/CustomTable";
+import documentoProxy from '../../proxy/tipoDocumento';
 
 const Home = () => {
-  const baseUrl = "http://localhost:9880/api/v1/tipoDocumento/listar";
   const [data, setData] = useState([]);
-  
+  const [loading, setLoading] = useState(true);
+
   const [openModalInsertar, toogleModalInsertar] = useModal();
 
   const renderColumnsTable = () => {
     columnheaders.IndexTableColumns = columnheaders.IndexTableColumns.filter(
-      (element) => {
-        return element.name !== "Opciones";
-      }
-    );
+      (element) => element.name !== "Opciones");
 
     columnheaders.IndexTableColumns.push({
       name: "Opciones",
@@ -47,10 +45,12 @@ const Home = () => {
   };
 
   useEffect(()=> {
-    const obtenerData = async ()=> {
-      const url = baseUrl;
-      const result = await axios.get(url);
-      console.log(result.data.content);
+    const obtenerData = () => {
+      documentoProxy.obtenerListadoDocumentos()
+        .then((result) => setData(result.data.content))
+        .finally(() => {
+          setTimeout(() => setLoading(false), 1500)
+        })
     };
     obtenerData();
   }, []);
@@ -73,6 +73,7 @@ const Home = () => {
         <CustomTable
           columns={renderColumnsTable()}
           data={data}
+          progressPending={loading}
         />
 
         <ModalAgregarEmpresa
