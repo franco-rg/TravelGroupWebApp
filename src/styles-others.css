@@ -549,21 +549,21 @@ select {
 
 /* Personalized Buttons */
 .btnPrimary {
-  background-color: #d0023c !important;
+  background-color: #427783 !important;
   color: #FFFFFF !important;
 }
 
 .btnPrimary:hover {
-  background-color: #DE4D76 !important;
+  background-color: #34626d !important;
 }
 
 .btnSecondary {
-  background-color: #1c1f2a !important;
-  color: #FFFFFF !important;
+  background-color: #e7e7e7 !important;
+  color: #2c2c2c !important;
 }
 
 .btnSecondary:hover {
-  background-color: #606269 !important;
+  background-color: #d4d4d4 !important;
 }
 
 .btnInfo {
