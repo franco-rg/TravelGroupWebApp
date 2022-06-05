@@ -24,6 +24,24 @@ const BreadcrumbsNavBar = [
         path: '/ventas',
         name: "Ventas"
     }
-]
+];
 
-export { BreadcrumbsNavBar }
+const BreadcrumbsSubNavBar = [
+    {
+        id: "1",
+        path: '/tipo-documento',
+        name: "Tipo Documento"
+    },
+    {
+        id: "2",
+        path: '/ciudad',
+        name: "Ciudad"
+    },
+    {
+        id: "3",
+        path: '/pais',
+        name: "Pais"
+    }
+];
+
+export default { BreadcrumbsNavBar, BreadcrumbsSubNavBar }

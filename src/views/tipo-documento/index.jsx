@@ -4,7 +4,7 @@ import Header from "../../components/shared/Header";
 import ContainerViews from "../../components/shared/ContainerViews";
 import columnheaders from "../../columnHeaders/empresas.headers";
 import { Button, IconButton } from "rsuite";
-import ModalAgregarEmpresa from "./Modales/ModalAgregarEmpresa";
+import ModalAgregarEmpresa from "./Modales/ModalAgregarTipoDocumento";
 import useModal from "../../hooks/useModal";
 import axios from "axios";
 import CustomTable from "../../components/shared/customs/CustomTable";
@@ -58,7 +58,7 @@ const Home = () => {
 
   return (
     <>
-      <Header title="Empresas" />
+      <Header title="Tipo Documento" />
       <ContainerViews>
         <Button
           className="btnPrimary"

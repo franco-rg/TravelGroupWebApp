@@ -14,9 +14,8 @@ const Login = () => {
       <div className="mx-2 sm:h-screen relative">
         <div className="flex flex-col h-full px-0 sm:px-2 lg:px-0 gap-3">
           <div className="sm:max-w-4xl mt-3 w-full m-auto">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-center items-center">
               <img src={logo} className="w-24 h-20" />
-              <button onClick={() => navigate(`/register`)} className="poppins bg-gray-100 text-sm text-white px-8 py-2 rounded-md border" style={{background: '#596966'}}>Regístrate</button>
             </div>
             <div
               className="grid grid-cols-2 rounded-lg overflow-hidden shadow-beautiful bg-white"

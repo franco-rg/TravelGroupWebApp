@@ -1,10 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import { BreadcrumbsNavBar } from '../../router/routesNavBar';
+import routes from '../../router/routesNavBar';
 import { useNavigate } from "react-router-dom";
+import useCollapse from "react-collapsed";
 
 const NavMenu = () => {
     const [toggle, setToggle] = useState(true);
+    const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
     const navigate = useNavigate();
     const [color, setColor] = useState("duration-300 transition-all w-full py-4 rounded-lg my-4")
@@ -20,11 +22,11 @@ const NavMenu = () => {
 
     const handleClick = (path) => {
         navigate(path);
-        setColor("duration-300 transition-all w-full py-4 rounded-lg my-4 bg-red-500")
+        setColor("duration-300 transition-all w-full py-4 rounded-lg my-4")
     }
 
     const pageItems = () => {
-        return BreadcrumbsNavBar.map((item) =>
+        return routes.BreadcrumbsNavBar.map((item) =>
             <button key={item.id} onClick={() => handleClick(item.path)}
                 className={color}>
                 <div className="ml-2 overflow-hidden w-7"></div>
@@ -49,7 +51,7 @@ const NavMenu = () => {
                         />
                     </button>
                 </div>
-                <ul className="overflow-hidden nav_list h-3/4 mt-20">
+                <ul className="overflow-hidden nav_list mt-20" style={{ height: '95%' }}>
                     <li key="_1" className="py-5 opacity-90 m-4">
                         <button className="w-full py-4 rounded-lg" onClick={() => navigate(`/inicio`)} style={{ background: '#a9b8b4' }}>
                             <div className="ml-2 overflow-hidden w-7">
@@ -57,11 +59,33 @@ const NavMenu = () => {
                             </div>
                             <span className="uppercase links_name poppins text-gray-700 font-medium">Inicio</span>
                         </button>
-                        {BreadcrumbsNavBar ? pageItems() : <></>}
+
+                        <>
+                            <button {...getToggleProps()} className={color + ' pl-12'}>
+                                <span style={{ paddingLeft: '3px' }} className="uppercase links_name poppins text-gray-700 font-medium">Mantenimientos</span>
+                                <div className="ml-2 overflow-hidden w-7">
+                                    {isExpanded ? <FontAwesomeIcon icon="fa-solid fa-angle-up" className="text-gray-500" /> : 
+                                    <FontAwesomeIcon icon="fa-solid fa-chevron-down" className="text-gray-500" />}
+                                </div>
+                            </button>
+                        </>
+
+                        <ul className="collapse">
+                            <li key="_1" {...getCollapseProps()} className="mt-2 ml-6 mr-4 flex flex-col">
+                                {routes.BreadcrumbsSubNavBar.map((item) =>
+                                    <button key={item.id} className="bg-gray-50 w-full py-3 rounded-md mb-2" onClick={() => handleClick(item.path)}>
+                                        <div className="ml-2 overflow-hidden w-7"></div>
+                                        <span className="uppercase links_name poppins text-gray-700 font-medium">{item.name}</span>
+                                    </button>
+                                )}
+                            </li>
+                        </ul>
+                        {routes.BreadcrumbsNavBar ? pageItems() : <></>}
                     </li>
                 </ul>
             </nav>
         </>
     );
 };
+
 export default NavMenu;

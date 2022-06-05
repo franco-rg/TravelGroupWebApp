@@ -7,12 +7,12 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: transparent;
 }
  
 /* Handle */
@@ -719,4 +719,49 @@ select {
 /* show options */
 .true-show > .viewOptions {
   opacity: 1;
+}
+
+.bloc-tabs {
+  display: flex;
+  width: 180px;
+}
+
+.tabs {
+  padding: 6px 12px;
+  text-align: center;
+  width: 50%;
+  background: rgba(128, 128, 128, 0.075);
+  cursor: pointer;
+  box-sizing: content-box;
+  position: relative;
+  border-radius: 2px;
+}
+
+.active-tabs  {
+  background: #FFFFFF;
+  border-bottom: 1px solid transparent;
+}
+
+.active-tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  height: 3px;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  width: 100%;
+  background: rgb(49, 99, 139);
+}
+
+.content {
+  padding: 20px 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.active-content {
+  display: block;
 }
