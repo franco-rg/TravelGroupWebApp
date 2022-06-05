@@ -1,20 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import viaje from "../../src/assets/img/login-img.svg";
 import logo from "../../src/assets/img/nombre.svg";
 import { useNavigate } from "react-router-dom";
+import { Form } from "rsuite";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
+import loginProxy from "../proxy/login.proxy";
 
 const Login = () => {
-
+  const notify = () =>
+    toast.promise(peticionPost(dataLogin), {
+      loading: "Verificando credenciales...",
+      success: <b>Logueo Exitoso!</b>,
+      error: <b>Usuario o contraseña incorrectos.</b>,
+    });
   const navigate = useNavigate();
+  const [dataLogin, setDataLogin] = useState({
+    documentoOrEmailDTO: "",
+    contrasenaDTO: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setDataLogin((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+    console.log(dataLogin);
+  };
+
+  const peticionPost = async () => {
+    await loginProxy.login(dataLogin)
+      .then((response) => {
+        setTimeout(() => {
+          response ? navigate("/inicio") : navigate("/");
+        }, 2000);
+      });
+  };
+
+  const executeAlert = () => {
+    peticionPost();
+    notify();
+  };
 
   return (
-    <div
-      className="bg-no-repeat bg-fixed bg-cover h-screen w-full relative bg-gray-50"
-    >
+    <div className="bg-no-repeat bg-fixed bg-cover h-screen w-full relative bg-gray-50">
       <div className="mx-2 sm:h-screen relative">
         <div className="flex flex-col h-full px-0 sm:px-2 lg:px-0 gap-3">
           <div className="sm:max-w-4xl mt-3 w-full m-auto">
-            <div className="flex justify-center items-center">
+            <div className="flex justify-between items-center">
               <img src={logo} className="w-24 h-20" />
             </div>
             <div
@@ -30,7 +64,7 @@ const Login = () => {
                   <br />
                   Comenzemos la aventura.
                 </h5>
-                <form>
+                <Form>
                   <div className="mb-8 mt-4">
                     <label
                       className="block text-gray-500 text-xs font-medium mb-1"
@@ -40,10 +74,11 @@ const Login = () => {
                     </label>
                     <input
                       className="border rounded-lg w-full py-2 px-3 text-gray-700 outline-none focus:border-gray-400"
-                      id="username"
                       type="email"
                       placeholder="Usuario"
-                      name="email"
+                      name="documentoOrEmailDTO"
+                      onChange={handleChange}
+                      autoComplete="off"
                     />
                   </div>
                   <div className="mb-10 sm:mb-16">
@@ -55,24 +90,25 @@ const Login = () => {
                     </label>
                     <input
                       className="border rounded-lg w-full py-2 px-3 text-gray-700 outline-none focus:border-gray-400"
-                      id="password"
-                      name="password"
+                      name="contrasenaDTO"
                       type="password"
                       placeholder="Contraseña"
+                      onChange={handleChange}
                     />
                   </div>
                   <hr className="mb-5" />
                   <div className="grid grid-cols-1 gap-2">
                     <button
-                      className="button_login relative hover:bg-cherry-300 transition-all duration-200 text-white font-bold text-base md:text-sm py-3 md:px-7 rounded focus:outline-none"
+                      className="button_login poppins relative hover:bg-cherry-300 transition-all duration-200 text-white font-bold text-base md:text-sm py-3 md:px-7 rounded focus:outline-none"
                       type="submit"
-                      onClick={() => navigate(`/inicio`)}
-                      style={{ background: "#BAD1CD" }}
+                      onClick={executeAlert}
+                      style={{ background: "#485856" }}
                     >
-                      <span className="button_login_text">Inicia Sesión</span>
+                      Inicia Sesión
                     </button>
+                    <Toaster />
                   </div>
-                </form>
+                </Form>
               </div>
             </div>
           </div>

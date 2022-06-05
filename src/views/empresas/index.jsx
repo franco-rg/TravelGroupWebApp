@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../../components/shared/Header";
 import ContainerViews from "../../components/shared/ContainerViews";
-import columnheaders from "../../columnHeaders/empresas.headers";
+import columnheaders from "../../columnHeaders/empresa.headers";
 import { Button, IconButton } from "rsuite";
 import ModalAgregarEmpresa from "./Modales/ModalAgregarEmpresa";
 import useModal from "../../hooks/useModal";
-import axios from "axios";
 import CustomTable from "../../components/shared/customs/CustomTable";
-import documentoProxy from '../../proxy/tipoDocumento.proxy';
+import empresaProxy from '../../proxy/empresa.proxy';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -46,7 +45,7 @@ const Home = () => {
 
   useEffect(()=> {
     const obtenerData = () => {
-      documentoProxy.obtenerListadoDocumentos()
+      empresaProxy.ObtenerEmpresas()
         .then((result) => setData(result.data.content))
         .finally(() => {
           setTimeout(() => setLoading(false), 1500)

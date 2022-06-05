@@ -73,7 +73,7 @@ const NavMenu = () => {
                         <ul className="collapse">
                             <li key="_1" {...getCollapseProps()} className="mt-2 ml-6 mr-4 flex flex-col">
                                 {routes.BreadcrumbsSubNavBar.map((item) =>
-                                    <button key={item.id} className="bg-gray-50 w-full py-3 rounded-md mb-2" onClick={() => handleClick(item.path)}>
+                                    <button key={item.id} className="w-full py-3 rounded-md mb-2" onClick={() => handleClick(item.path)}>
                                         <div className="ml-2 overflow-hidden w-7"></div>
                                         <span className="uppercase links_name poppins text-gray-700 font-medium">{item.name}</span>
                                     </button>

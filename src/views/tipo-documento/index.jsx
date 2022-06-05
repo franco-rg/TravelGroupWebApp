@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../../components/shared/Header";
 import ContainerViews from "../../components/shared/ContainerViews";
-import columnheaders from "../../columnHeaders/empresas.headers";
+import columnheaders from "../../columnHeaders/tipoDocumento.headers";
 import { Button, IconButton } from "rsuite";
 import ModalAgregarEmpresa from "./Modales/ModalAgregarTipoDocumento";
 import useModal from "../../hooks/useModal";
@@ -54,7 +54,6 @@ const Home = () => {
     };
     obtenerData();
   }, []);
-  
 
   return (
     <>

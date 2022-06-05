@@ -2,8 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Button, IconButton } from "rsuite";
 import CustomTable from "../../components/shared/customs/CustomTable";
-import columnheaders from "../../columnHeaders/empresas.headers";
-import documentoProxy from "../../proxy/tipoDocumento.proxy";
+import columnheaders from "../../columnHeaders/roles.headers";
+import rolesProxy from "../../proxy/roles.proxy";
 
 const Roles = () => {
   const [data, setData] = useState([]);
@@ -40,8 +40,8 @@ const Roles = () => {
 
   useEffect(() => {
     const obtenerData = () => {
-      documentoProxy
-        .obtenerListadoDocumentos()
+      rolesProxy
+        .ObtenerRoles()
         .then((result) => setData(result.data.content))
         .finally(() => {
           setTimeout(() => setLoading(false), 1500);

@@ -2,8 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Button, IconButton } from "rsuite";
 import CustomTable from "../../components/shared/customs/CustomTable";
-import columnheaders from "../../columnHeaders/empresas.headers";
-import documentoProxy from "../../proxy/tipoDocumento.proxy";
+import columnheaders from "../../columnHeaders/usuarios.headers";
+import usuariosProxy from "../../proxy/usuarios.proxy";
 
 const Usuarios = () => {
   const [data, setData] = useState([]);
@@ -40,8 +40,8 @@ const Usuarios = () => {
 
   useEffect(() => {
     const obtenerData = () => {
-      documentoProxy
-        .obtenerListadoDocumentos()
+      usuariosProxy
+        .ObtenerUsuarios()
         .then((result) => setData(result.data.content))
         .finally(() => {
           setTimeout(() => setLoading(false), 1500);
