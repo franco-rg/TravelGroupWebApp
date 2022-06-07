@@ -10,7 +10,7 @@ import axios from "axios";
 import CustomTable from "../../components/shared/customs/CustomTable";
 import documentoProxy from '../../proxy/tipoDocumento.proxy';
 
-const Home = () => {
+const TipoDocumento = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -81,4 +81,4 @@ const Home = () => {
     </>
   );
 };
-export default Home;
+export default TipoDocumento;

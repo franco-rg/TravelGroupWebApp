@@ -18,14 +18,12 @@ root.render(
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-
         <Route element={<App />} >
           <Route path='/inicio' element={<Home />} />
           <Route path='/empresas' element={<Empresas />} />
           <Route path='/roles-usuarios' element={<RolesUsuarios />} />
           <Route path='/tipo-documento' element={<TipoDocumento />} />
         </Route>
-
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -4,7 +4,7 @@ import "rsuite/dist/rsuite.min.css";
 import { Form } from "rsuite";
 import CustomModal from "../../../components/shared/customs/CustomModal";
 
-const ModalAgregarEmpresa = ({
+const ModalAgregarRol = ({
   openModalInsertar,
   toogleModalInsertar,
 }) => {
@@ -31,4 +31,4 @@ const ModalAgregarEmpresa = ({
   );
 };
 
-export default ModalAgregarEmpresa;
+export default ModalAgregarRol;

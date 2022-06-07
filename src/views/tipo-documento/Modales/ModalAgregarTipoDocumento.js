@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
-import { toast } from "react-toastify";
+import React from "react";
 import "rsuite/dist/rsuite.min.css";
 import { Form } from "rsuite";
+import FormControlCustom from '../../../components/shared/Forms/FormControlCustom';
+import Accepters from '../../../components/shared/Forms/Accepters';
 import CustomModal from "../../../components/shared/customs/CustomModal";
 
-const ModalAgregarEmpresa = ({
+const ModalAgregarTipoDocumento = ({
   openModalInsertar,
   toogleModalInsertar,
 }) => {
@@ -18,17 +19,20 @@ const ModalAgregarEmpresa = ({
         toogleModalInsertar();
       }}
       btnActionPrimary="Guardar"
-      formId="frmAgregarTipoServicio"
+      formId="frmAgregarTipoDocumento"
     >
       <>
-        <Form
-          autoComplete="off"
-          id="frmAgregarTipoServicio"
-        >
+        <Form autoComplete="off" id="ModalAgregarTipoDocumento">
+          <FormControlCustom
+            name="tipoDTO"
+            label="Tipo Documento"
+            isRequired={true}
+            accepter={Accepters.TextInput}
+          ></FormControlCustom>
         </Form>
       </>
     </CustomModal>
   );
 };
 
-export default ModalAgregarEmpresa;
+export default ModalAgregarTipoDocumento;

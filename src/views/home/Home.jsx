@@ -1,11 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Header from "../../components/shared/Header";
+import { useLocation, useParams } from "react-router";
 import DateTime from "./DateTime";
 import ContainerViews from "../../components/shared/ContainerViews";
 import logo from "../../assets/img/nombre.svg";
+import {useNavigate} from 'react-router-dom';
 
 const Home = () => {
+  const locationState = useLocation().state;
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState("");
+  const [role, setRole] = useState("");
+
+  useEffect(() =>{
+      if(locationState?.super){
+        console.log("existe")
+      }else{
+        navigate("/");
+      }
+      setUser(window.localStorage.getItem("userName"));
+      setRole(window.localStorage.getItem("role"));
+  }, []);
+
   return (
     <>
       <Header title="Menú principal" />
@@ -17,11 +35,14 @@ const Home = () => {
         >
           <div className="col-span-5">
             <div className="rounded-xl overflow-hidden">
-              <div className="bg-gray-100 px-4 py-2">
+              <div className="bg-gray-100 px-4 py-2 relative">
                 <p className="text-xs text-gray-800 font-medium">
                   Bienvenido(a)
                 </p>
-                <h1 className="poppins text-lg">Username</h1>
+                <label className="absolute right-0 px-3 top-4 mx-2 text-gray-800 bg-gray-300 rounded-xl poppins">
+                  {role}
+                </label>
+                <h1 className="poppins text-lg">{user}</h1>
               </div>
               <div
                 className="h-48 flex justify-center items-center"

@@ -3,8 +3,7 @@ import viaje from "../../src/assets/img/register-img.svg";
 import logo from "../../src/assets/img/nombre.svg";
 import { useNavigate } from "react-router-dom";
 
-
-const Login = () => {
+const Register = () => {
 
   const navigate = useNavigate();
 
@@ -159,4 +158,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

@@ -1,26 +1,21 @@
 const BreadcrumbsNavBar = [
     {
         id: "1",
-        path: '/roles-usuarios',
-        name: "Roles y Usuarios"
-    },
-    {
-        id: "2",
         path: '/empresas',
         name: "Empresas"
     },
     {
-        id: "3",
+        id: "2",
         path: '/vuelos',
         name: "Vuelos"
     },
     {
-        id: "4",
+        id: "3",
         path: '/promociones',
         name: "Promociones"
     },
     {
-        id: "5",
+        id: "4",
         path: '/ventas',
         name: "Ventas"
     }
@@ -34,11 +29,16 @@ const BreadcrumbsSubNavBar = [
     },
     {
         id: "2",
+        path: '/roles-usuarios',
+        name: "Roles y Usuarios"
+    },
+    {
+        id: "3",
         path: '/ciudad',
         name: "Ciudad"
     },
     {
-        id: "3",
+        id: "4",
         path: '/pais',
         name: "Pais"
     }

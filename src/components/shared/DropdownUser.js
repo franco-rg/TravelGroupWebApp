@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+import logoutProxy from '../../proxy/logout.proxy';
 
 const Dropdown = () => {
     const [showOptions, setShowOptions] = useState(false);
@@ -10,6 +11,12 @@ const Dropdown = () => {
     };
 
     const navigate = useNavigate();
+
+    // const logout = () => {
+    //     logoutProxy.logout().then((result) => {
+    //         console.log(result);
+    //     });
+    // };
 
     return (
         <div>
@@ -30,7 +37,7 @@ const Dropdown = () => {
                             </div>
                             <div className="py-2 flex flex-col items-start gap-y-3 px-6 z-50" role="none">
                                 <button className="text-gray-500 font-medium poppins block text-sm cursor-pointer" role="menuitem" tabIndex="-1" id="menu-item-0">Opciones de Perfil</button>
-                                <button onClick={() => navigate(`/`)} className="text-gray-500 font-medium poppins block text-sm opacity-80 cursor-pointer hover:opacity-100 hover:transition-all duration-300" role="menuitem" tabIndex="-1" id="menu-item-2">Cerrar Sesión</button>
+                                <button onClick={() => navigate("/")} className="text-gray-500 font-medium poppins block text-sm opacity-80 cursor-pointer hover:opacity-100 hover:transition-all duration-300" role="menuitem" tabIndex="-1" id="menu-item-2">Cerrar Sesión</button>
                             </div>
                         </div>
                     )

@@ -3,6 +3,8 @@ import { toast } from "react-toastify";
 import "rsuite/dist/rsuite.min.css";
 import { Form } from "rsuite";
 import CustomModal from "../../../components/shared/customs/CustomModal";
+import FormControlCustom from "../../../components/shared/Forms/FormControlCustom";
+import Accepters from "../../../components/shared/Forms/Accepters";
 
 const ModalAgregarEmpresa = ({
   openModalInsertar,
@@ -18,13 +20,29 @@ const ModalAgregarEmpresa = ({
         toogleModalInsertar();
       }}
       btnActionPrimary="Guardar"
-      formId="frmAgregarTipoServicio"
+      formId="frmAgregarEmpresa"
     >
       <>
         <Form
           autoComplete="off"
-          id="frmAgregarTipoServicio"
+          id="frmAgregarEmpresa"
         >
+          <div className="grid grid-cols-4 gap-8">
+            <FormControlCustom
+              className="col-span-2"
+              name="nombreDTO"
+              label="Nombre"
+              isRequired={true}
+              accepter={Accepters.TextInput}
+            ></FormControlCustom>
+            <FormControlCustom
+              name="razonSocialDTO"
+              className="col-span-2"
+              label="Razon Social"
+              isRequired={true}
+              accepter={Accepters.TextInput}
+            ></FormControlCustom>
+          </div>
         </Form>
       </>
     </CustomModal>

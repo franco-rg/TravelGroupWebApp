@@ -3,11 +3,12 @@ import viaje from "../../src/assets/img/login-img.svg";
 import logo from "../../src/assets/img/nombre.svg";
 import { useNavigate } from "react-router-dom";
 import { Form } from "rsuite";
-import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import loginProxy from "../proxy/login.proxy";
 
 const Login = () => {
+  let [userLogued, setUserLogued] = useState(false);
+
   const notify = () =>
     toast.promise(peticionPost(dataLogin), {
       loading: "Verificando credenciales...",
@@ -19,6 +20,7 @@ const Login = () => {
     documentoOrEmailDTO: "",
     contrasenaDTO: "",
   });
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,8 +34,10 @@ const Login = () => {
   const peticionPost = async () => {
     await loginProxy.login(dataLogin)
       .then((response) => {
+        window.localStorage.setItem("userName", response.data.content.name);
+        window.localStorage.setItem("role", response.data.content.authorities[0].authority);
         setTimeout(() => {
-          response ? navigate("/inicio") : navigate("/");
+          response ? navigate("/inicio", {state: {super: 1}}) : navigate("/");
         }, 2000);
       });
   };
