@@ -45,14 +45,14 @@ const Home = () => {
                 <h1 className="poppins text-lg">{user}</h1>
               </div>
               <div
-                className="h-48 flex justify-center items-center"
-                style={{ background: "#BAD1CD" }}
+                className="h-48 flex justify-center items-center border-t-2 border-gray-400"
+                style={{ background: "#f7f7f7" }}
               >
                 <img
-                  className="min-w-full p-28"
+                  className="min-w-full p-24"
                   src={logo}
                   alt="logo_img"
-                  style={{ minWidth: "70px", minHeight: "20px" }}
+                  style={{ minWidth: "100px", minHeight: "50px" }}
                 />
               </div>
             </div>

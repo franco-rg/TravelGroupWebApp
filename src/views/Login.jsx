@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import viaje from "../../src/assets/img/login-img.svg";
+import viaje from "../../src/assets/img/mujer-img.svg";
 import logo from "../../src/assets/img/nombre.svg";
 import { useNavigate } from "react-router-dom";
-import { Form } from "rsuite";
+import { Form, Loader } from "rsuite";
 import toast, { Toaster } from "react-hot-toast";
 import loginProxy from "../proxy/login.proxy";
 
 const Login = () => {
-  let [userLogued, setUserLogued] = useState(false);
+  let [loaderBtn, setLoaderBtn] = useState(false);
 
   const notify = () =>
     toast.promise(peticionPost(dataLogin), {
@@ -21,7 +21,6 @@ const Login = () => {
     contrasenaDTO: "",
   });
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setDataLogin((prevState) => ({
@@ -32,17 +31,21 @@ const Login = () => {
   };
 
   const peticionPost = async () => {
-    await loginProxy.login(dataLogin)
-      .then((response) => {
-        window.localStorage.setItem("userName", response.data.content.name);
-        window.localStorage.setItem("role", response.data.content.authorities[0].authority);
-        setTimeout(() => {
-          response ? navigate("/inicio", {state: {super: 1}}) : navigate("/");
-        }, 2000);
-      });
+    await loginProxy.login(dataLogin).then((response) => {
+      window.localStorage.setItem("userName", response.data.content.name);
+      window.localStorage.setItem("role", response.data.content.authorities[0].authority);
+      setTimeout(() => {
+        response ? navigate("/inicio", { state: { super: 1 } }) : navigate("/");
+      }, 2000);
+    }).finally(()=> {
+      setTimeout(()=> {
+        setLoaderBtn(false);
+      }, 800)
+    });
   };
 
   const executeAlert = () => {
+    setLoaderBtn(true);
     peticionPost();
     notify();
   };
@@ -59,7 +62,10 @@ const Login = () => {
               className="grid grid-cols-2 rounded-lg overflow-hidden shadow-beautiful bg-white"
               style={{ height: "33rem" }}
             >
-              <div className="p-10 flex" style={{ background: "#BAD1CD" }}>
+              <div
+                className="p-10 flex"
+                style={{ background: "rgb(205 230 223)" }}
+              >
                 <img src={viaje} />
               </div>
               <div className="m-4 sm:mt-auto p-10">
@@ -103,12 +109,13 @@ const Login = () => {
                   <hr className="mb-5" />
                   <div className="grid grid-cols-1 gap-2">
                     <button
-                      className="button_login poppins relative hover:bg-cherry-300 transition-all duration-200 text-white font-bold text-base md:text-sm py-3 md:px-7 rounded focus:outline-none"
+                      className="button_login poppins relative hover:bg-cherry-300 transition-all duration-200 text-white font-medium md:text-sm py-3 md:px-7 rounded focus:outline-none"
                       type="submit"
+                      disabled={loaderBtn ? true : false}
                       onClick={executeAlert}
-                      style={{ background: "#485856" }}
+                      style={{ background: "#366A79" }}
                     >
-                      Inicia Sesión
+                      {loaderBtn ? <Loader content="Procesando..." /> : "Inicia Sesión"}
                     </button>
                     <Toaster />
                   </div>

@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 body {
-  background-color: #f2f2f2 !important;
+  background-color: #eef9f6 !important;
 }
 
 /* width */
@@ -513,7 +513,7 @@ select {
 
 /* Personalized DataTable */
 .rdt_TableHeadRow {
-  background-color: #1a546e !important;
+  background-color: #366A79 !important;
   color: #FFF;
   font-weight: 500;
   font-size: 13px;
@@ -529,7 +529,7 @@ select {
 }
 
 .rdt_TableCol {
-  border: 1px solid #1c546e;
+  border: 1px solid #346775;
   justify-content: center;
 }
 
@@ -764,4 +764,8 @@ select {
 
 .active-content {
   display: block;
+}
+
+.rs-loader-spin:after {
+  border-top: 3px solid #FFFFFF !important;
 }

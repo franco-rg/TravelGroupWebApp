@@ -37,7 +37,7 @@ const NavMenu = () => {
 
     return (
         <>
-            <nav className={"slider z-50 rounded-xl top-0 left-0 text-white fixed shadow-beautiful transition-all duration-500 mx-4 ease-in-out ".concat(toggle ? "active my-4 h-96vh" : "my-10 h-88vh")} style={{ background: "#BAD1CD" }}>
+            <nav className={"slider z-50 rounded-xl top-0 left-0 text-white fixed shadow-beautiful transition-all duration-500 mx-4 ease-in-out ".concat(toggle ? "active my-4 h-96vh" : "my-10 h-88vh")} style={{ background: "#42CBA5" }}>
                 <div className={toggle ? "absolute w-8 top-4 left-4 transition-opacity" : "fixed left-0 ml-1 top-8 bg-white rounded-sm px-1.5 shadow-beautiful"}>
                     <button
                         id="btnOpen"
@@ -52,12 +52,12 @@ const NavMenu = () => {
                     </button>
                 </div>
                 <ul className="overflow-hidden nav_list mt-20" style={{ height: '95%' }}>
-                    <li key="_1" className="py-5 opacity-90 m-4">
-                        <button className="w-full py-4 rounded-lg" onClick={() => navigate(`/inicio`)} style={{ background: '#a9b8b4' }}>
+                    <li key="_1" className="py-5 m-4">
+                        <button className="w-full py-4 rounded-lg" onClick={() => navigate(`/inicio`)} style={{ background: '#F2F2F2' }}>
                             <div className="ml-2 overflow-hidden w-7">
                                 <FontAwesomeIcon icon="fa-solid fa-house" className="text-gray-600" />
                             </div>
-                            <span className="uppercase links_name poppins text-gray-700 font-medium">Inicio</span>
+                            <span className="uppercase links_name poppins text-white font-medium text-gray-800">Inicio</span>
                         </button>
 
                         <>

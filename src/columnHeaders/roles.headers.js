@@ -8,7 +8,7 @@ const IndexTableColumns = [
     },
     {
         name: 'Rol',
-        cell: row => <div style={Alignment.left}>{row.rolDTO === 'ROLE_ADMIN' ? 'ADMINISTRADOR' : null}</div>,
+        cell: row => <div style={Alignment.left}>{row.rolDTO}</div>,
     },
     {
         name: 'Estado',

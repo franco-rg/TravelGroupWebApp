@@ -3,8 +3,8 @@ import Alignment from './styles/Alignment';
 const IndexTableColumns = [
     {
         name: '',
-        width: '70px',
-        cell: row => <div style={{ width: '100%' }}>{row.index}</div>,
+        width: '50px',
+        cell: row => <div style={Alignment.center}>{row.index}</div>,
     },
     {
         name: 'Nombres',
@@ -30,7 +30,7 @@ const IndexTableColumns = [
     {
         name: 'Rol',
         width: '15%',
-        cell: row => <div style={Alignment.left}>{row.rolesDTO[0].rol === 'ROLE_ADMIN' ? 'ADMINISTRADOR' : null}</div>,
+        cell: row => <div style={Alignment.left}>{row.rolesDTO[0].rol}</div>,
     },
 ];
 
