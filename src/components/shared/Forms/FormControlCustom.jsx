@@ -1,7 +1,7 @@
 import { Form } from "rsuite";
 
 export function FormControlCustom({
-	className, label, name = "", value = "", searchable = false, data = [], onChange = () => { }, onBlur = () => { }, error, isRequired, readOnly = false, accepter, disabled = false, disabledDate=false
+	placeholder = "0", className, label, name = "", value = "", searchable = false, data = [], onChange = () => { }, onBlur = () => { }, error, isRequired, readOnly = false, accepter, disabled = false, disabledDate=false
 }) {
 
 	const onChangeHandler = value => {
@@ -26,6 +26,7 @@ export function FormControlCustom({
 				className={readOnly ? "w-full pointer-events-none" : "w-full"}
 				name={name}
 				value={value}
+				placeholder={placeholder}
 				data={data}
 				onChange={onChangeHandler}
 				onBlur={onBlurHandler}

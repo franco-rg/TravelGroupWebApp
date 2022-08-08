@@ -37,7 +37,7 @@ const NavMenu = () => {
 
     return (
         <>
-            <nav className={"slider z-50 rounded-xl top-0 left-0 text-white fixed shadow-beautiful transition-all duration-500 mx-4 ease-in-out ".concat(toggle ? "active my-4 h-96vh" : "my-10 h-88vh")} style={{ background: "#42CBA5" }}>
+            <nav className={"slider z-50 rounded-xl top-0 left-0 text-white fixed shadow-beautiful transition-all duration-500 mx-4 ease-in-out ".concat(toggle ? "active my-4 h-96vh" : "my-10 h-88vh")} style={{ background: "#7BCFD7" }}>
                 <div className={toggle ? "absolute w-8 top-4 left-4 transition-opacity" : "fixed left-0 ml-1 top-8 bg-white rounded-sm px-1.5 shadow-beautiful"}>
                     <button
                         id="btnOpen"
