@@ -5,17 +5,7 @@ const ObtenerEmpresas = () => {
 }
 
 const InsertarEmpresas = (form) => {
-    return axios.post("https://agencia0vi.herokuapp.com/api/v1/empresa/registrar", form, {
-        withCredentials: true,
-        headers: {
-            "Access-Control-Allow-Origin": "*"
-        }
-    }, {
-        auth: {
-            username: 'ejemplo23@gmail.com',
-            password: '123456'
-        }
-    });
+    return axios.post("https://agencia0vi.herokuapp.com/api/v1/empresa/registrar", form);
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export

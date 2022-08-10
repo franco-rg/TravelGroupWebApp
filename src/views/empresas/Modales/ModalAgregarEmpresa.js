@@ -40,21 +40,14 @@ const ModalAgregarEmpresa = ({
 
   const handleSubmit = () => {
     if (!formRef.current.check()) return;
-    empresaProxy.InsertarEmpresas(formValue).then(function(response) {
-      console.log('Authenticated');
-    }).catch(function(error) {
-      console.log('Error on Authentication');
+    empresaProxy.InsertarEmpresas(formValue).then((res) => {
+      if (res.data.codEstado == -1) toast.error(res.data.mensaje);
+      else {
+        toast.success("Insertado!");
+        // reload();
+      }
+      toogleModalInsertar();
     });
-
-
-    // .then((res) => {
-    //   if (res.data.codEstado == -1) toast.error(res.data.mensaje);
-    //   else {
-    //     toast.success("Insertado!");
-    //     reload();
-    //   }
-    //   toogleModalInsertar();
-    // });
   };
 
   return (
