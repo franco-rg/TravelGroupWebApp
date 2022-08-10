@@ -1,13 +1,18 @@
 import axios from "axios";
 
 const ObtenerEmpresas = () => {
-    return axios.get("http://localhost:9890/api/v1/empresa/listar");
+    return axios.get("https://agencia0vi.herokuapp.com/api/v1/empresa/listar");
 }
 
 const InsertarEmpresas = (form) => {
-    return axios.post("http://localhost:9890/api/v1/empresa/registrar", form, {
+    return axios.post("https://agencia0vi.herokuapp.com/api/v1/empresa/registrar", form, {
+        withCredentials: true,
+        headers: {
+            "Access-Control-Allow-Origin": "*"
+        }
+    }, {
         auth: {
-            username: 'franco@gmail.com',
+            username: 'ejemplo23@gmail.com',
             password: '123456'
         }
     });
